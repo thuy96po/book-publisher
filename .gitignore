@@ -47,3 +47,7 @@ bower.json
 # Ignore node_modules
 node_modules/
 
+/.idea/*
+
+config/secrets.yml
+config/database.yml
