@@ -12,17 +12,22 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><%= t("category").upcase %></a></li>
         <li><a href="#"><%= t("author").upcase %></a></li>
-        <li class="<%= current_class? branch_path %>"  ><a href=<%= branch_path %>><%= t("branch").upcase %></a></li>
+        <li class="<%= current_class? branch_path %>" ><a href=<%= branch_path %>><%= t("branch").upcase %></a></li>
         <li class="<%= current_class? about_path %>"><a href= <%= about_path %>><%= t("about_us").upcase %></a></li>
         <li class="<%= current_class? contact_path %>"><a href=<%= contact_path %>><%= t("contact").upcase %></a></li>
-        <li class="dropdown">
-          <a class="dropbtn"><%= t("my_account").upcase %></a>
-          <div class="dropdown-content">
-            <a href="#"><%= t "my_profile" %></a>
-            <a href="#"><%= t "my_bill" %></a>
-            <a href="#"><%= t "signin" %></a>
-          </div>
-        </li>
+        <% if logged_in? %>
+          <li class="dropdown" class="<%= current_class? logout_path %>">
+            <a class="dropbtn"><%= t("my_account").upcase %></a>
+            <div class="dropdown-content">
+              <a href="#"><%= t "my_profile" %></a>
+              <a href="#"><%= t "my_bill" %></a>
+              <a href="<%= logout_path %>" data-method="delete"><%= t "logout" %></a>
+            </div>
+          </li>
+        <% else %>
+          <li class="<%= current_class? signup_path %>"><a href=<%= signup_path %>><%= t("signup").upcase %></a></li>
+          <li class="<%= current_class? login_path %>"><a href=<%= login_path %>><%= t("login").upcase %></a></li>
+        <% end %>
       </ul>
     </div>
   </div>
