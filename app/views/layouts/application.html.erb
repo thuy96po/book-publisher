@@ -7,6 +7,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "layouts/header"  %>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
+    <%= render "layouts/footer"  %>
   </body>
 </html>
