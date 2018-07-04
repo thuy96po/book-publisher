@@ -31,3 +31,61 @@
 
 en:
   hello: "Hello world"
+  my_account: "My account"
+  my_bill: "My bill"
+  my_profile: "My profile"
+  signin: "Sign in"
+  login: "Log in"
+  logout: "Log out"
+  branch: "Branch"
+  about_us: "About us"
+  category: "Category"
+  home: "Home"
+  contact: "Contact"
+  author: "Author"
+  follow_us: "Follow us"
+  all_right_reversed: "All right Reversed"
+  quicklink: "Quick links"
+  address: "Address"
+  time: "Time"
+  name: "Name"
+  email: "Email"
+  comment: "Comment"
+  static_pages:
+    about:
+      content_1: "Balboa Press is a self-publishing company specializing in
+      self-help titles that inspire and enlighten the reader. We offer a full
+      suite of publishing, design and marketing services, enabling a greater
+      number of authors to publish their works."
+      content_2: "Our books are printed using print-on-demand technology so we
+      print each book to order. Not only is this method of printing mindful of
+      our planet because no books go to waste, but it is mindful of our authors
+      too. As an author, you are never required to shoulder the cost and hassle
+      of printing, storing and transporting large quantities of your book.
+      When a book is ordered by a reader, a retailer or the author, it is
+      printed and dispatched in a matter of days."
+      our_values: "Our Values"
+      content_3: "Balboa Press has launched publishing opportunities in the
+      United States, United Kingdom, Australia and New Zealand."
+      content_4: "Balboa Press authors publish books on a wide range of topics,
+      concentrating in positive themes, including the following: self-help,
+      transformational, astrology, alternative health, angels, pet care,
+      finance, nutrition, parenting, psychology, sociology, meditation,
+      spirituality, numerology, colour therapy, feng shui, business,
+      autobiographies, social commentary, memoirs, children's books, cookbooks
+      and more."
+    branch:
+      we_are_in: "Now, we are in..."
+      hanoi: "Ha Noi"
+      hcm: "Ho Chi Minh"
+      danang: "Da Nang"
+      address_hn: "Pham Hung, Me Tri, Ha Noi"
+      address_dn: "Vinh Trung, Thanh Khe, Da Nang"
+      address_hcm: "Dien Bien Phu, Binh Thanh, Ho Chi Minh"
+      time: "7:30 am - 9:00 pm"
+    contact:
+      content_1: "Contact us and we'll get back to you within 24 hours."
+      address: "Pham Hung, Me Tri, Ha Noi"
+      phone: "0123456789"
+      mail: "no_reply@gmail.com"
+      send: "Send"

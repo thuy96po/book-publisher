@@ -1,30 +1,27 @@
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
+  <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to image_tag %>
-      <a class="navbar-brand" href= "<%= root_path %>">Logo</a>
+      <%= link_to image_tag("logo.jpg"), root_path %>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#home">HOME</a></li>
-        <li><a href="#band">BAND</a></li>
-        <li><a href="#tour">TOUR</a></li>
-        <li><a href="#contact">CONTACT</a></li>
+        <li><a href="#"><%= t("category").upcase %></a></li>
+        <li><a href="#"><%= t("author").upcase %></a></li>
+        <li class="<%= current_class? branch_path %>"  ><a href=<%= branch_path %>><%= t("branch").upcase %></a></li>
+        <li class="<%= current_class? about_path %>"><a href= <%= about_path %>><%= t("about_us").upcase %></a></li>
+        <li class="<%= current_class? contact_path %>"><a href=<%= contact_path %>><%= t("contact").upcase %></a></li>
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Merchandise</a></li>
-            <li><a href="#">Extras</a></li>
-            <li><a href="#">Media</a></li>
-          </ul>
+          <a class="dropbtn"><%= t("my_account").upcase %></a>
+          <div class="dropdown-content">
+            <a href="#"><%= t "my_profile" %></a>
+            <a href="#"><%= t "my_bill" %></a>
+            <a href="#"><%= t "signin" %></a>
+          </div>
         </li>
       </ul>
     </div>
