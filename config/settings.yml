@@ -5,3 +5,5 @@ max_address: 255
 max_phone: 11
 min_phone: 10
 type_image: "image/jpeg,image/gif,image/png"
+list_length: 9
+description_length: 120

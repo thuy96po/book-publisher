@@ -42,7 +42,7 @@ en:
   branch: "Branch"
   about_us: "About us"
   category: "Category"
-  home: "Home"
+  main_page: "Home"
   contact: "Contact"
   author: "Author"
   follow_us: "Follow us"
@@ -115,3 +115,8 @@ en:
       flash_success_content: "Welcome to this page"
     destroy:
       flash_info_content: "Log out successfully"
+  home:
+    books:
+      list_books: "List books"
+      view_more: "View more"
+      add_to_cart: "Add to cart"
