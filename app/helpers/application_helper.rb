@@ -1,6 +1,7 @@
 module ApplicationHelper
+  include Pagy::Frontend
   def full_title page_title = ""
-    base_title = "Book Publisher"
+    base_title = t "base_title"
     if page_title.empty?
       base_title
     else

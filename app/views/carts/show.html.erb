@@ -1,0 +1,45 @@
+<% provide :title, t(".cart") %>
+<table id="cart" class="table table-hover table-condensed">
+  <thead>
+  <tr>
+    <th style="width:50%"><%= t ".book" %></th>
+    <th style="width:10%"><%= t ".price" %></th>
+    <th style="width:8%"><%= t ".quantity" %></th>
+    <th style="width:22%" class="text-center"><%= t ".subtotal" %></th>
+    <th style="width:10%"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @books.each do |book| %>
+    <tr>
+      <td data-th="Product">
+        <div class="row">
+          <div class="col-sm-12">
+            <h4 class="nomargin"><%= book.name %></h4>
+            <p><%= book.description.truncate(Settings.description_length, separator: " ") %></p>
+          </div>
+        </div>
+      </td>
+      <td data-th="Price"><%= load_price final_price(book.price, book.discount) %></td>
+      <td data-th="Quantity">
+        <input type="number" class="form-control text-center" value="<%= current_cart[book.id.to_s] %>">
+      </td>
+      <td data-th="Subtotal" class="text-center subtotal"><%= subtotal_price book.price, book.discount, current_cart[book.id.to_s]%></td>
+      <td class="actions" data-th="">
+        <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+  <% if @books.present? %>
+    <%== pagy_nav @pagy %>
+  <% end %>
+  <tfoot>
+  <tr>
+    <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> <%= t ".continue_shopping" %></a></td>
+    <td colspan="2" class="hidden-xs"></td>
+    <td class="hidden-xs text-center"><strong><%= t ".total" %>: <span id="total"><%= load_price total_price @books_all %></span></strong></td>
+    <td><a href="#" class="btn btn-success btn-block"><%= t ".checkout" %> <i class="fa fa-angle-right"></i></a></td>
+  </tr>
+  </tfoot>
+</table>

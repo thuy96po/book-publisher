@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
+  post "/addition/:id", to: "books#addition", as: "addition"
+  get "carts", to: "carts#show"
   resources :users
 end
