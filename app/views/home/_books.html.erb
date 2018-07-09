@@ -15,13 +15,16 @@
           <%= book.description.truncate(Settings.description_length, separator: " ") %>
         </p>
         <div class="row">
-          <div class="col-xs-12 col-md-6">
+          <div class=" col-md-3">
             <p class="lead">
               <%= load_price final_price(book.price, book.discount) %></p>
           </div>
-          <div class="col-xs-12 col-md-6">
-            <button class="btn btn-success"><%= t ".add_to_cart" %></button>
+          <div id="action-<%= book.id %>">
+            <%= render "home/action", book: book %>
           </div>
+        </div>
+        <div class="alert alert-info" role="alert" id="alert-<%= book.id %>">
+          <%= t ".item_added" %>
         </div>
       </div>
     </div>

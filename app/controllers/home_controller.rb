@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @books = Book.list params[:last]
+    @books = Book.load_books_with_discount.load_limit params[:last]
 
     respond_to do |format|
       format.html

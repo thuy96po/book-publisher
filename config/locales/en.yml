@@ -55,6 +55,7 @@ en:
   comment: "Comment"
   error: "error"
   user_not_found: "User not found"
+  base_title: "Book Publisher"
   static_pages:
     about:
       content_1: "Balboa Press is a self-publishing company specializing in
@@ -119,4 +120,17 @@ en:
     books:
       list_books: "List books"
       view_more: "View more"
+      item_added: "This book is in cart now"
+    action:
       add_to_cart: "Add to cart"
+      none_book: "Out of stock"
+  carts:
+    show:
+      cart: "Cart"
+      book: "Book"
+      price: "Price"
+      quantity: "Quantity"
+      total: "Total"
+      subtotal: "Subtotal"
+      continue_shopping: "Continue shopping"
+      checkout: "Checkout"

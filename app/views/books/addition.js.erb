@@ -1,0 +1,6 @@
+$('#lblCartCount').html(<%= @total %>);
+$('#action-<%= @book.id %>').html('<%= j render 'home/action', book: @book %>');
+$('#alert-<%= @book.id %>').css('visibility', 'visible');
+setTimeout(function(){
+    $('#alert-<%= @book.id %>').css('visibility', 'hidden');
+}, <%= Settings.display_alert_addition %>);
