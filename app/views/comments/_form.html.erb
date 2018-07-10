@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-12">
+     <%= form_for [@book, @comment], {role: "form", remote: true} do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+      <%= f.label :rate, class: "col-md-2 required"%>
+      <div class="col-md-10">
+        <fieldset class="rating">
+          <%= f.radio_button :rate, "5", id: "star5", class:"remove_field_with_error" %>
+          <label class="full" for="star5" title="5 stars"></label>
+          <%= f.radio_button :rate, "4.5", id: "star4half", class:"remove_field_with_error" %>
+          <label class="half" for="star4half" title="4.5 stars"></label>
+          <%= f.radio_button :rate, "4", id: "star4", class:"remove_field_with_error" %>
+          <label class = "full" for="star4" title="4 stars"></label>
+          <%= f.radio_button :rate, "3.5", id: "star3half", class:"remove_field_with_error" %>
+          <label class="half" for="star3half" title="3.5 stars"></label>
+          <%= f.radio_button :rate, "3", id: "star3", class:"remove_field_with_error" %>
+          <label class = "full" for="star3" title="3 stars"></label>
+          <%= f.radio_button :rate, "2.5", id: "star2half", class:"remove_field_with_error" %>
+          <label class="half" for="star2half" title="2.5 stars"></label>
+          <%= f.radio_button :rate, "2", id: "star2", class:"remove_field_with_error" %>
+          <label class = "full" for="star2" title="2 stars"></label>
+          <%= f.radio_button :rate, "1.5", id: "star1half", class:"remove_field_with_error" %>
+          <label class="half" for="star1half" title="1.5 stars"></label>
+          <%= f.radio_button :rate, "1", id: "star1", class:"remove_field_with_error" %>
+          <label class = "full" for="star1" title="1 stars"></label>
+          <%= f.radio_button :rate, "0.5", id: "starhalf", class:"remove_field_with_error" %>
+          <label class="half" for="starhalf" title="0.5 stars"></label>
+        </fieldset>
+      </div>
+      <%= f.label :content, class: "col-md-2 required" %>
+      <%= f.text_area :content, class: "form-control col-md-10 content", placeholder: t(".comment_place") %>
+
+      <%= f.submit t("comment"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

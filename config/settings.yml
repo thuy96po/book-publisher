@@ -9,3 +9,4 @@ list_length: 9
 description_length: 120
 pagy: 5
 display_alert_addition: 1000
+max_content: 255

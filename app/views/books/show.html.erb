@@ -1,0 +1,75 @@
+<% provide :title, t(".title") %>
+<div id="book-detail">
+  <div class="content-wrapper">
+    <div class="item-container">
+      <div class="container">
+        <div class="col-md-12">
+          <div class="product col-md-3">
+            <% if @book.discount %>
+              <span class="label label-danger"><%= @book.discount %> %</span>
+            <% end %>
+              <%= image_tag @book.image %>
+          </div>
+          <div class="col-md-9">
+            <div class="product-title"><%= @book.name %></div>
+            <div class="product-desc"><%= @book.author_name %></div>
+            <div class="product-rating"><strong id="rating"><%= @book.average_rate %></strong><i class="fa fa-star gold"></i></div>
+            <hr>
+            <% if @book.discount %>
+              <div class="price-has-discount"><%= load_price @book.price %></div>
+              <div class="product-price"><%= load_price final_price @book.price, @book.discount %></div>
+            <% else %>
+              <div class="product-price"><%= load_price @book.price %></div>
+            <% end %>
+            <hr>
+            <div id="action-<%= @book.id %>" class="row">
+              <%= render "home/action", book: @book %>
+            </div>
+            <div class="alert alert-info" role="alert" id="alert-<%= @book.id %>">
+              <%= t ".item_added" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="col-md-12 product-info">
+        <ul id="myTab" class="nav nav-tabs nav_tabs">
+          <li class="active"><a href="#service-three" data-toggle="tab"><%= t ".reviews" %></a></li>
+          <li><a href="#service-one" data-toggle="tab"><%= t ".description" %></a></li>
+          <li><a href="#service-two" data-toggle="tab"><%= t ".author" %></a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+          <div class="tab-pane fade" id="service-one">
+            <section class="container product-info">
+             <%= @book.description %>
+            </section>
+          </div>
+          <div class="tab-pane fade" id="service-two">
+            <section class="container product-info">
+              <div class="col-md-3 product">
+                <%= image_tag @book.author_image %>
+              </div>
+              <div class="col-md-9">
+                <h3><%= @book.author_name %></h3>
+                <%= @book.author_description %>
+              </div>
+            </section>
+          </div>
+          <div class="tab-pane fade in active" id="service-three">
+            <section class="container product-info">
+              <div id="comments">
+                <%= render "comments/comments" %>
+                <div class="col-md-3"></div>
+              </div>
+              <div id="form">
+                <%= render "comments/form" %>
+              </div>
+            </section>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>

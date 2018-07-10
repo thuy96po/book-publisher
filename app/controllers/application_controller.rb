@@ -4,5 +4,6 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include BooksHelper
   include CartsHelper
+  include CommentsHelper
   before_action :current_cart, :total_books
 end
