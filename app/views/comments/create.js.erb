@@ -1,0 +1,8 @@
+$("#form").html("<%= j render "comments/form" %>");
+<% if @comment.invalid? %>
+  $(".remove_field_with_error").unwrap();
+<% else %>
+  $("#comments").html("<%= j render "comments/comments" %>");
+  $(".content").val("");
+  $("#rating").html("<%= @average_rate %>");
+<% end %>

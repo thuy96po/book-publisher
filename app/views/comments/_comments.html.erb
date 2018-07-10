@@ -1,0 +1,25 @@
+<% if @comments.present? %>
+  <%== pagy_nav @pagy %>
+  <div class="row">
+    <div class="list-group row">
+      <% @comments.each do |comment| %>
+        <div class="comment">
+          <div class="col-md-9">
+            <h4 class="list-group-item-heading"><%= comment.user_email %></h4>
+            <p class="list-group-item-text"><%= comment.content %></p>
+          </div>
+          <div class="col-md-3 text-center">
+            <div class="stars">
+              <strong><%= comment.rate %></strong>
+              <span class="glyphicon glyphicon-star"></span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <div class="row no-comments">
+    <%= t ".no_comment" %>
+  </div>
+<% end %>

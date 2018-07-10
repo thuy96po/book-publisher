@@ -2,7 +2,8 @@ class Book < ApplicationRecord
   belongs_to :author
   belongs_to :category
   has_many :book_discounts
-  delegate :author_name, to: :author
+  has_many :comments
+  delegate :name, :image, :description, to: :author, prefix: true
 
   def self.load_books_with_discount
     select("books.*, book_discounts.discount")

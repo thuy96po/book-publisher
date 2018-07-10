@@ -2,7 +2,7 @@
   <% @books.each do |book| %>
     <div class="item col-xs-4 col-lg-4">
       <div class="thumbnail">
-      <%= image_tag book.image, class: "group list-group-image" %>
+      <%= link_to image_tag(book.image), book_path(book), class: "group list-group-image" %>
       <% if book.discount %>
         <span class="label label-danger"><%= book.discount %> %</span>
       <% end %>

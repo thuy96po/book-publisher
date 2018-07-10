@@ -134,3 +134,22 @@ en:
       subtotal: "Subtotal"
       continue_shopping: "Continue shopping"
       checkout: "Checkout"
+  books:
+    show:
+      add_to_cart: "Add to cart"
+      description: "Description"
+      author: "Author"
+      reviews: "Reviews"
+      title: "Book detail"
+      item_added: "This book is in cart now"
+    comments:
+      comment: "Comment"
+  no_exit_book: "This book isn't exit"
+  user_must_sign_in: "You must sign in to continue"
+  comments:
+    create:
+      wrong: "Something went wrong! Please try again"
+    form:
+      comment_place: "Input your comment here"
+    comments:
+      no_comment: "No comment on this book"

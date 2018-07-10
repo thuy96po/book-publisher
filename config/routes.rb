@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   post "/addition/:id", to: "books#addition", as: "addition"
   get "carts", to: "carts#show"
   resources :users
+  resources :books do
+    resources :comments
+  end
 end
