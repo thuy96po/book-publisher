@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   post "/addition/:id", to: "books#addition", as: "addition"
   get "carts", to: "carts#show"
+  delete "carts", to: "carts#destroy_all", as: "destroy_carts_all"
+  delete "carts/:id", to: "carts#destroy", as: "destroy"
+  post "carts", to: "carts#edit"
   resources :users
   resources :books do
     resources :comments
