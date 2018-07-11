@@ -25,4 +25,12 @@ module CartsHelper
       book.quantity <= current_cart[book.id.to_s])
     ""
   end
+
+  def change_cart book_id, quantity_after
+    load_book book_id
+    @enough = false
+    return if quantity_after > @book.quantity
+    @enough = true
+    current_cart[book_id] = quantity_after
+  end
 end

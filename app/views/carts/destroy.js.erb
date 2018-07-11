@@ -1,0 +1,3 @@
+$('#lblCartCount').html('<%= total_books %>');
+$('#book-<%= @book_id %>').remove();
+$('#total').html("<%= load_price total_price @books_all %>");

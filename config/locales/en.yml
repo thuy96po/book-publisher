@@ -134,6 +134,12 @@ en:
       subtotal: "Subtotal"
       continue_shopping: "Continue shopping"
       checkout: "Checkout"
+      empty_cart: "Empty cart"
+      stock_not_enough: "Stock not enough"
+      confirm_all: "Are you sure to empty this cart?"
+      confirm: "Are you sure to remove this book from cart?"
+    edit:
+      stock_not_enough: "Stock not enough"
   books:
     show:
       add_to_cart: "Add to cart"

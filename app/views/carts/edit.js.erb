@@ -1,0 +1,11 @@
+$('#total').html("<%= load_price total_price @books_all %>");
+$('#lblCartCount').html("<%= total_books %>");
+$('#book-<%= @book.id %> .subtotal').html("<%= subtotal_price @book.price,
+@book.discount, current_cart[@book.id.to_s]%>");
+$('#out_of_stock-<%= @book.id %>').html("<%= j render "carts/alert_out_stock", book: @book %>");
+<% unless @enough %>
+  $('#stock_not_enough-<%= @book.id %>').css('visibility', 'visible');
+  setTimeout(function(){
+      $('#stock_not_enough-<%= @book.id %>').css('visibility', 'hidden');
+  }, <%= Settings.display_alert_addition %>);
+<% end %>
