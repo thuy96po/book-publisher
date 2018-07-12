@@ -293,6 +293,7 @@ label.required:after{
   .alert-info {
     display: inherit;
     visibility: hidden;
+    margin-top: 10px;
   }
 
   .alert-danger{
@@ -308,12 +309,16 @@ label.required:after{
     float: right;
   }
 
-  .col-md-5 .disabled {
+  .alert-stock .disabled {
     display: inherit;
   }
 
   .row{
     margin-right: 0px;
+  }
+
+  .alert-stock{
+    padding-right: 0px;
   }
 }
 
@@ -401,12 +406,6 @@ label.required:after{
   .btn-success{
     padding-right: 0px;
   }
-
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
 }
 
 .disabled {
@@ -425,7 +424,7 @@ label.required:after{
 }
 
 #book-detail {
-  .col-md-4, .col-md-5{
+  .col-md-6{
     width: auto;
   }
 
@@ -440,7 +439,7 @@ label.required:after{
   .row{
     margin-left: 0px;
   }
-  .col-md-4, .col-md-9{
+  .col-md-6, .col-md-9{
     padding-left: 0px;
   }
 
@@ -686,4 +685,60 @@ label.required:after{
       margin-bottom: 0px;
     }
   }
+}
+
+#search{
+  form{
+    padding: 10px;
+    background-color: $background_search;
+    border-radius: 5px;
+  }
+
+  ul.ui-autocomplete {
+    position: absolute;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: solid 1px gray;
+    cursor: default;
+    padding-left: 0px;
+    li {
+      background-color: white;
+      border-top: solid 1px white;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      a {
+        color: black;
+        display: block;
+        padding: 3px;
+      }
+      a.ui-state-hover, a.ui-state-active {
+        background-color: #FFFCB2;
+      }
+    }
+  }
+
+  .row{
+    margin: 0px;
+  }
+}
+
+#products .title{
+  height: 40px;
+}
+
+.well-sm{
+  background: $background_search;
+  font-family: monospace;
+}
+
+.color-label, .well-sm strong{
+  color: $nav_link_hover;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

@@ -1,2 +1,6 @@
-$('#load_more').remove();
-$('#products').append('<%= j render('home/books') %>');
+<% if @last %>
+  $('#load_more').remove();
+  $('#products').append('<%= j render 'home/books' %>');
+<% else %>
+  $('#products').html('<%= j render 'home/books' %>');
+<% end %>
