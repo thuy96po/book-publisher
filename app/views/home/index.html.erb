@@ -1,7 +1,35 @@
 <% provide :title, t("main_page") %>
-<div class="well well-sm">
-  <strong><%= t ".list_books" %></strong>
+<div class="col-md-3" id ="search">
+  <div class="row">
+    <%= form_with url: root_path, method: :get, scope: :search do |f| %>
+      <div class="form-group">
+        <label class="color-label" for="name"><%= t "book_name" %></label>
+        <%= f.text_field :name, class: "col-md-12" %>
+      </div>
+      <div class="form-group">
+        <label class="color-label" for="author"><%= t "author" %></label>
+        <%= f.text_field :author_name, onchange: "clear_value()", data: { autocomplete_source: Author.order(:name).map{ |t| {label: t.name, value: t.id }}}, id: "author_name", class: "col-md-12" %>
+        <%= f.hidden_field :author, id: "author_id" %>
+      </div>
+      <div class="form-group ui-widget">
+        <label for="price" class="color-label"><%= t "price" %></label><br>
+        <div class="row">
+          <%= f.number_field :min_price, class: "col-md-5"%>
+          <div class="col-md-2 text-center"> - </div>
+          <%= f.number_field :max_price, class: "col-md-5" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.submit t("search"), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
 </div>
-<div id="products" class="list-group">
-  <%= render "home/books" %>
+<div class="col-md-9">
+  <div class="well well-sm">
+    <strong><%= t ".list_books" %></strong>
+  </div>
+  <div id="products" class="list-group">
+    <%= render "home/books" %>
+  </div>
 </div>

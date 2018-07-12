@@ -118,9 +118,11 @@ en:
       flash_info_content: "Log out successfully"
   home:
     books:
-      list_books: "List books"
       view_more: "View more"
       item_added: "This book is in cart now"
+      list_book_empty: "No books!"
+    index:
+      list_books: "List books"
     action:
       add_to_cart: "Add to cart"
       none_book: "Out of stock"
@@ -159,3 +161,7 @@ en:
       comment_place: "Input your comment here"
     comments:
       no_comment: "No comment on this book"
+  search: "Search"
+  author: "Author"
+  price: "Price"
+  book_name: "Book name"
