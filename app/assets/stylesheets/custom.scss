@@ -406,6 +406,10 @@ label.required:after{
   .btn-success{
     padding-right: 0px;
   }
+
+  .address{
+    margin-top: 15px;
+  }
 }
 
 .disabled {
@@ -741,4 +745,36 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+#bills{
+  .table-wrapper {
+    display: block;
+    max-height: 300px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+
+  .space{
+    height: 30px;
+  }
+
+  .btn-success{
+    float: right;
+    margin-top: 15px;
+  }
+
+  .form-address{
+    display: none;
+  }
+}
+
+#new_bill{
+  .alert-danger{
+    display: none !important;
+  }
+
+  ul{
+    padding-left: 15px !important;
+  }
 }
