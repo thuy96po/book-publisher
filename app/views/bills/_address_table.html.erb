@@ -1,0 +1,7 @@
+<%= form_for @bill, remote: true do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+    <div id="address-table">
+      <%= f.hidden_field :address_bill_id, class: "address_bill_id" %>
+    </div>
+  <%= f.submit "Submit", class: "btn btn-success col-md-2" %>
+<% end %>

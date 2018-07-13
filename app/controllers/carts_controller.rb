@@ -22,9 +22,4 @@ class CartsController < ApplicationController
     @book = Book.load_books_with_discount.find_by id: params[:id]
     load_books
   end
-
-  private
-  def load_books
-    @books_all = Book.load_books_with_discount.where id: current_cart.keys
-  end
 end

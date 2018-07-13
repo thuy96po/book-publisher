@@ -108,6 +108,10 @@ en:
         name: "Name"
         address: "Address"
         phone: "Phone"
+      address_bill:
+        name: "Name"
+        address: "Address"
+        phone: "Phone"
   sessions:
     new:
       flash_danger_content: "Email or password not correct"
@@ -165,3 +169,15 @@ en:
   author: "Author"
   price: "Price"
   book_name: "Book name"
+  bills:
+    new:
+      bill: "Bill"
+      bill_detail: "Bill detail"
+      books: "Books"
+      shipping_address: "Shipping address"
+      add_address: "New shipping address"
+      cart_empty: "Cart empty!"
+    create:
+      flash_success_content: "Bill is created successfully"
+  new_address: "New shipping address"
+  list_address: "Display list address"

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   delete "carts", to: "carts#destroy_all", as: "destroy_carts_all"
   delete "carts/:id", to: "carts#destroy", as: "destroy"
   post "carts", to: "carts#edit"
+  get "bills", to: "bills#new"
+  post "bills", to: "bills#create"
   resources :users
   resources :books do
     resources :comments

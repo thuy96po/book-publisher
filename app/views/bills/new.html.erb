@@ -1,0 +1,99 @@
+<% provide :title, t(".bill") %>
+<div id="bills">
+  <div class="row">
+    <div class="col-md-2">
+      <h3><p><%= t ".bill_detail" %></p></h3>
+      <p><%= t "carts.show.total" %>: <h4><strong><%= load_price total_price @books_all %></strong></h4></p>
+    </div>
+    <div class="col-md-10 table-wrapper">
+      <table id="cart" class="table table-hover table-condensed ">
+        <thead>
+        <tr>
+          <th style="width:58%"><%= t ".books" %></th>
+          <th style="width:10%" class="text-center"><%= t ".price" %></th>
+          <th style="width:12%" class="text-center"><%= t ".quantity" %></th>
+          <th style="width:20%" class="text-center"><%= t ".subtotal" %></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @books_all.each do |book| %>
+          <tr id="book-<%= book.id %>">
+            <td data-th="Product">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="row">
+                    <div class="col-md-7">
+                      <h4 class="nomargin"><%= book.name %></h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td data-th="Price" class="text-center"><%= load_price final_price(book.price, book.discount) %></td>
+            <td data-th="Quantity" class="text-center"><%= current_cart[book.id.to_s] %></td>
+            <td data-th="Subtotal" class="text-center subtotal"><%= subtotal_price book.price, book.discount, current_cart[book.id.to_s]%></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="space"><hr></div>
+  <div class="row">
+    <div class="col-md-2">
+      <h3><p><%= t ".shipping_address" %></p></h3>
+      <button class="btn btn-info button-address" onclick="switch_address()"><%= t ".add_address" %></button>
+    </div>
+    <div class="col-md-10" >
+      <div class="table-wrapper table-address">
+        <table id="cart" class="table table-hover table-condensed">
+        <thead>
+        <tr>
+          <th style="width:58%"><%= t "address" %></th>
+          <th style="width:21%" class="text-center"><%= t "name" %></th>
+          <th style="width:21%" class="text-center"><%= t "phone" %></th>
+        </tr>
+        </thead>
+        <tbody>
+          <% unless @address_bills.empty? %>
+            <% @address_bills.each do |address_bill| %>
+              <tr>
+                <td data-th="Product">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="row">
+                        <div class="col-md-7">
+                          <input type="radio" value="<%= address_bill.id %>" name="<%= address_bill.id %>" class="address col-md-1" onclick="get_address_id(<%= address_bill.id %>)">
+                          <h4 class="nomargin col-md-11"><%= address_bill.address %></h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td data-th="Price" class="text-center"><%= address_bill.name %></td>
+                <td data-th="Quantity" class="text-center"><%= address_bill.phone %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+      </div>
+      <div id="form">
+        <%= render "bills/address_table" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function switch_address() {
+    if($("#address-form").length > 0){
+      $(".table-address").css("display", "block");
+      $("#form").html("<%= j render "bills/address_table" %>");
+    }
+    else{
+      $(".table-address").css("display", "none");
+      $("#form").html("<%= j render "bills/address_form" %>");
+    }
+  }
+</script>

@@ -14,4 +14,8 @@ module BooksHelper
     flash[:danger] = t "no_exit_book"
     redirect_to root_path
   end
+
+  def load_books
+    @books_all = Book.load_books_with_discount.where id: current_cart.keys
+  end
 end
