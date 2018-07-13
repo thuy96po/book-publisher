@@ -19,6 +19,9 @@
             <div class="dropdown-content">
               <a href="#"><%= t "my_profile" %></a>
               <a href="#"><%= t "my_bill" %></a>
+              <% if current_user.role == User::ADMIN %>
+                <a href="<%= admin_book_discounts_path %>"><%= t "go_admin" %></a>
+              <% end %>
               <a href="<%= logout_path %>" data-method="delete"><%= t "logout" %></a>
             </div>
           </li>

@@ -778,3 +778,29 @@ input::-webkit-inner-spin-button {
     padding-left: 15px !important;
   }
 }
+
+#nav-container{
+  padding: 0px 30px !important;
+  .active > a{
+    background-color: $admin_nav_active;
+  }
+  .admin-logo{
+    margin-right: 20px;
+  }
+}
+#container-admin{
+  .container{
+    padding: 0px 40px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .float-right{
+    float: right;
+    width: auto;
+  }
+
+  .row{
+    margin: 10px 0px;
+  }
+}

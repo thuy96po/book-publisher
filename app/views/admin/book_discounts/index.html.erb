@@ -1,0 +1,23 @@
+<%= provide :title, t("discount") %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="row">
+      <h4 class="col-md-6"><%= t "admin.book_discounts.list" %></h4>
+      <div class="col-md-6">
+        <%= link_to new_admin_book_discount_path, class: "btn btn-info float-right" do %>
+          <span class="glyphicon glyphicon-plus"> <strong><%= t "create" %></strong></span>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <h4 class="col-md-6"><%= t "search" %></h4>
+    </div>
+    <div class="row">
+      <%= render "search" %>
+    </div>
+    <hr>
+    <div id="data-table">
+      <%= render "table" %>
+    </div>
+  </div>
+</div>
