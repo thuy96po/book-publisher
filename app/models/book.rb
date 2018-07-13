@@ -4,6 +4,9 @@ class Book < ApplicationRecord
   has_many :book_discounts
   has_many :comments
   delegate :name, :image, :description, to: :author, prefix: true
+
+  validates :quantity, numericality: {greater_than_or_equal_to: 0}
+
   scope :name_is, ->(name){where "name LIKE ?", "%#{name}%"}
   scope :written_by, ->(author_id){where author_id: author_id}
   scope :price_less_than, ->(price){where "price*(1-discount/100) <= ?", price}

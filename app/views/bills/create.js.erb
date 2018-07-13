@@ -1,0 +1,6 @@
+if($("#address-form").length > 0){
+  $("#form").html("<%= j render "bills/address_form" %>");
+}
+else{
+  $("#form").html("<%= j render "bills/address_table" %>");
+}

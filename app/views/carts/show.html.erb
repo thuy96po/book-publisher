@@ -62,7 +62,7 @@
         <td colspan="2" class="hidden-xs"></td>
         <td class="hidden-xs text-center"><strong><%= t ".total" %>: <span id="total"><%= load_price total_price @books_all %></span></strong></td>
         <td>
-          <%= link_to root_path, class: "btn btn-success btn-block" do %>
+          <%= link_to bills_path, class: "btn btn-success btn-block" do %>
             <%= t ".checkout" %> <i class="fa fa-angle-right"></i>
           <% end %>
       <% end %>
