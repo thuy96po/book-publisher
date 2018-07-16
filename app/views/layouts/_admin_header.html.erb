@@ -1,0 +1,18 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid" id="nav-container">
+    <div class="navbar-header">
+      <%= link_to image_tag("logo.jpg"), root_path, class: "admin-logo" %>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="#"><%= t("book").upcase %></a></li>
+      <li><a href="#"><%= t("bill").upcase %></a></li>
+      <li class="<%= current_controller? "book_discounts" %>"><a href="<%= admin_book_discounts_path %>"><%= t("discount").upcase %></a></li>
+      <li><a href="#"><%= t("author").upcase %></a></li>
+      <li><a href="#"><%= t("category").upcase %></a></li>
+      <li><a href="#"><%= t("advertisment").upcase %></a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="<%= logout_path %>" data-method="delete"><%= t("logout").upcase %> <span class="glyphicon glyphicon-log-in"></span></a></li>
+    </ul>
+  </div>
+</nav>

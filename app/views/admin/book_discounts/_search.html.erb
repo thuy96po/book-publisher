@@ -1,0 +1,24 @@
+<%= form_with url: admin_book_discounts_path, method: :get, scope: :search do |f| %>
+  <div class="col-md-4">
+    <%= f.select :book_id, Book.all.collect {|p| [ p.name, p.id ]}, {include_blank: t("admin.book_discounts.select_book")}, class: "form-control" %>
+  </div>
+  <div class="col-md-2">
+    <%= f.number_field :discount, class: "form-control", placeholder: t("discount") %>
+  </div>
+  <div class="col-md-2">
+    <%= f.text_field :start_date, class: "form-control", onfocus: "(this.type=\"date\")", placeholder: t("admin.book_discounts.index.start_date") %>
+  </div>
+  <div class="col-md-2">
+    <%= f.text_field :end_date, class: "form-control", onfocus: "(this.type=\"date\")", placeholder: t("admin.book_discounts.index.end_date") %>
+  </div>
+  <div class="col-md-1">
+    <%= f.submit t("search"), class: "btn btn-success" %>
+  </div>
+  <div class="col-md-1">
+    <p data-placement="top" data-toggle="tooltip" title="<%= t "refresh" %>">
+      <%= link_to admin_book_discounts_path, class: "btn btn-primary" do %>
+        <span class="glyphicon glyphicon-refresh"></span>
+      <% end %>
+    </p>
+  </div>
+<% end %>

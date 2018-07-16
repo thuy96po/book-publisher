@@ -181,3 +181,40 @@ en:
       flash_success_content: "Bill is created successfully"
   new_address: "New shipping address"
   list_address: "Display list address"
+  no_access_admin: "Access denied!"
+  book: "Book"
+  author: "Author"
+  advertisment: "Advertisment"
+  category: "Category"
+  discount: "Discount"
+  bill: "Bill"
+  edit: "Edit"
+  delete: "Delete"
+  create: "Create"
+  detail: "Detail"
+  go_admin: "Admin page"
+  admin:
+    book_discounts:
+      list: "List of discount"
+      discount: "Discount (%)"
+      select_book: "Select book"
+      index:
+        book: "Book"
+        start_date: "Start date"
+        end_date: "End date"
+      is_doing: "Access denied! Discount is doing"
+      update:
+        flash_success_content: "Book discount is edited successfully"
+      destroy:
+        flash_success_content: "Book discount is destroyed successfully"
+      create:
+        flash_success_content: "Book discount is created successfully"
+      new:
+        new_discount: "New discount"
+      form:
+        submit: "Submit"
+      show:
+        title: "Show discount"
+      edit:
+        title: "Edit discount"
+        edit_discount: "Edit discount"
