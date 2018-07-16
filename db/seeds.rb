@@ -1,7 +1,7 @@
 25.times do |n|
   name = Faker::Book.author
   image = Faker::Avatar.image
-  description = Faker::Lorem.sentence 5
+  description = Faker::Lorem.sentence 100
   Author.create!(name:  name, image: image, description: description)
 end
 
@@ -29,8 +29,8 @@ end
   name = Faker::Book.title
   image = Faker::Avatar.image
   price = Faker::Number.number 5
-  description = Faker::Lorem.sentence 20
-  quantity = Faker::Number.digit
+  description = Faker::Lorem.sentence 100
+  quantity = Faker::Number.between(0, 80)
   average_rate = Faker::Number.between(1, 5)
   author_id = Faker::Number.between(1, 25)
   category_id = Faker::Number.between(1, 20)
@@ -56,6 +56,8 @@ end
   User.create!(email: email, avatar: avatar, password: password,
     password_confirmation: password,)
 end
+User.create!(email: "admin@gmail.com", avatar: Faker::Avatar.image, role: 1,
+  password: "123456", password_confirmation: "123456")
 
 30.times do |n|
   address = Faker::Address.full_address

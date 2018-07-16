@@ -1,0 +1,33 @@
+<%= provide :title, t("bill") %>
+<div class="table-responsive col-md-12">
+  <table id="mytable" class="table table-bordred table-striped">
+    <thead>
+    <th><%= t "name" %></th>
+    <th class="text-center"><%= t "address" %></th>
+    <th class="text-center"><%= t "phone" %></th>
+    <th class="text-center"><%= t "status" %></th>
+    <th class="text-center"><%= t "detail" %></th>
+    </thead>
+    <tbody>
+    <% @bills.each do |bill| %>
+      <tr>
+        <td><%= bill.name %></td>
+        <td class="text-center"><%= bill.address %></td>
+        <td class="text-center"><%= bill.phone %></td>
+        <td class="text-center"><%= convert_status_bill bill.status %></td>
+        <td class="text-center">
+          <p data-placement="top" data-toggle="tooltip" title="<%= t "detail" %>">
+            <%= link_to detail_path(bill), class: "btn btn-warning btn-xs" do %>
+              <span class="glyphicon glyphicon glyphicon-eye-open"></span>
+            <% end %>
+          </p>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <div class="row float-right">
+    <%== pagy_nav @pagy %>
+  </div>
+  <div class="clearfix"></div>
+</div>

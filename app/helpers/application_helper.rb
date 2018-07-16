@@ -22,4 +22,15 @@ module ApplicationHelper
   def convert_date str
     str.strftime("%m/%d/%Y")
   end
+
+  def convert_status_bill stt
+    case stt
+    when Bill::UNCHECK
+      t "admin.bills.uncheck"
+    when Bill::INPROGRESS
+      t "admin.bills.inprocess"
+    when Bill::DONE
+      t "admin.bills.done"
+    end
+  end
 end

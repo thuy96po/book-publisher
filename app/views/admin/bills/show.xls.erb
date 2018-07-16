@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Bill Detail">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String"><%= t "admin.bills.index.owner_name" %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= @bill.name %></Data></Cell>
+      </Row>
+      <Row>
+        <Cell><Data ss:Type="String"><%= t "address" %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= @bill.address %></Data></Cell>
+      </Row>
+      <Row>
+        <Cell><Data ss:Type="String"><%= t "phone" %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= @bill.phone %></Data></Cell>
+      </Row>
+      <Row>
+        <Cell><Data ss:Type="String"><%= t "status" %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= convert_status_bill @bill.status %></Data></Cell>
+      </Row>
+      <Row></Row>
+      <Row>
+        <Cell><Data ss:Type="String"><%= t ".bill_detail" %>:</Data></Cell>
+      </Row>
+      <Row>
+        <Cell><Data ss:Type="String"><%= t ".book" %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= t ".quantity" %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= t ".price" %></Data></Cell>
+      </Row>
+      <% total = 0 %>
+      <% @bill_details.each do |bill_detail| %>
+        <Row>
+          <Cell><Data ss:Type="String"><%= bill_detail.book_name %></Data></Cell>
+          <Cell><Data ss:Type="Number"><%= bill_detail.quantity %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= load_price bill_detail.price %></Data></Cell>
+        </Row>
+        <% total += bill_detail.quantity * bill_detail.price %>
+      <% end %>
+      <Row></Row>
+      <Row>
+        <Cell><Data ss:Type="String"><%= t ".total" %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= load_price total %></Data></Cell>
+      </Row>
+    </Table>
+  </Worksheet>
+</Workbook>

@@ -18,7 +18,7 @@
             <a class="dropbtn"><%= t("my_account").upcase %></a>
             <div class="dropdown-content">
               <a href="#"><%= t "my_profile" %></a>
-              <a href="#"><%= t "my_bill" %></a>
+              <a href="<%= my_bills_path %>"><%= t "my_bill" %></a>
               <% if current_user.role == User::ADMIN %>
                 <a href="<%= admin_book_discounts_path %>"><%= t "go_admin" %></a>
               <% end %>

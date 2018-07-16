@@ -2,6 +2,19 @@ class BillsController < ApplicationController
   before_action :bills_params, only: :create
   before_action :load_user
 
+  def index
+    @address_bills = AddressBill.where user: current_user
+    @pagy, @bills = pagy Bill.where address_bill: @address_bills
+  end
+
+  def show
+    @bill = Bill.find_by id: params[:id]
+    @pagy, @bill_details = pagy BillDetail.where bill: @bill
+    return if @bill.present?
+    flash[:danger] = t "admin.bills.no_bill"
+    redirect_to list_bills_path
+  end
+
   def new
     if current_cart.empty?
       flash[:danger] = t ".cart_empty"
