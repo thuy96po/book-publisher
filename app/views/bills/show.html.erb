@@ -1,0 +1,48 @@
+<%= provide :title, t("bills.new.bill_detail") %>
+<div class="row">
+  <div class="col-md-12">
+    <%= render "admin/bills/readonly_field" %>
+    <div class="form-group row">
+      <div class="col-md-2">
+        <strong><%= t "status"%>:</strong>
+      </div>
+      <div class="col-md-4">
+        <%= convert_status_bill @bill.status %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-2">
+        <strong><%= t ".bill_detail"%>:</strong>
+      </div>
+    </div>
+    <div class="table-responsive col-md-12">
+      <table id="mytable" class="table table-bordred table-striped">
+        <thead>
+        <th><%= t ".book" %></th>
+        <th class="text-center"><%= t ".quantity" %></th>
+        <th class="text-center"><%= t ".price" %></th>
+        </thead>
+        <tbody>
+        <% total = 0 %>
+        <% @bill_details.each do |bill_detail| %>
+          <tr>
+            <td><%= bill_detail.book_name %></td>
+            <td class="text-center"><%= bill_detail.quantity %></td>
+            <td class="text-center"><%= load_price bill_detail.price %></td>
+          </tr>
+          <% total += bill_detail.quantity * bill_detail.price %>
+        <% end %>
+        </tbody>
+      </table>
+      <div class="row float-right">
+        <%== pagy_nav @pagy %>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-2">
+        <strong><%= t ".total"%>: <%= load_price total %></strong>
+      </div>
+    </div>
+  </div>
+</div>

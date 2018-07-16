@@ -32,7 +32,7 @@
 en:
   hello: "Hello world"
   my_account: "My account"
-  my_bill: "My bill"
+  my_bill: "My bills"
   my_profile: "My profile"
   signup: "Sign up"
   login: "Log in"
@@ -193,11 +193,17 @@ en:
   create: "Create"
   detail: "Detail"
   go_admin: "Admin page"
+  refresh: "Refresh"
+  go_admin: "Admin page"
+  phone: "Phone"
+  status: "Status"
+  wrong: "Something went wrong! Please try again"
   admin:
     book_discounts:
       list: "List of discount"
       discount: "Discount (%)"
       select_book: "Select book"
+      no_discount: "This discount doesn't exit"
       index:
         book: "Book"
         start_date: "Start date"
@@ -218,3 +224,32 @@ en:
       edit:
         title: "Edit discount"
         edit_discount: "Edit discount"
+    bills:
+      no_bill: "This bill doesn't exit"
+      uncheck: "Uncheck"
+      done: "Done"
+      inprocess: "In process"
+      index:
+        list: "List of bills"
+        owner_name: "Owner name"
+      show:
+        subtitle: "Bill detail"
+        title: "Show bill"
+        bill_detail: "Bill detail"
+        book: "Book"
+        quantity: "Quantity"
+        price: "Price"
+        total: "Total"
+        export: "Export excel"
+      destroy:
+        flash_danger_content: "Can't delete this bill because it not done"
+        flash_success_content: "This bill is deleted successfully"
+      edit:
+        flash_danger_content: "Can't edit this bill because it was done"
+        flash_success_content: "This bill is edited successfully"
+        title: "Edit bill"
+      form:
+        submit: "Update"
+        select: "Select status"
+      update:
+        flash_success_content: "Bill is edited successfully"

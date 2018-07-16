@@ -232,7 +232,7 @@ label.required:after{
   {
     float: none;
     width: 100%;
-    background-color: #red;
+    background-color: red;
     margin-bottom: 10px;
   }
 
@@ -803,4 +803,8 @@ input::-webkit-inner-spin-button {
   .row{
     margin: 10px 0px;
   }
+}
+
+.export{
+  margin-left: 8px;
 }

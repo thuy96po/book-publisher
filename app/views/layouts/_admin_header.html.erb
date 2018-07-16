@@ -5,7 +5,7 @@
     </div>
     <ul class="nav navbar-nav">
       <li><a href="#"><%= t("book").upcase %></a></li>
-      <li><a href="#"><%= t("bill").upcase %></a></li>
+      <li class="<%= current_controller? "bills" %>"><a href="<%= admin_bills_path %>"><%= t("bill").upcase %></a></li>
       <li class="<%= current_controller? "book_discounts" %>"><a href="<%= admin_book_discounts_path %>"><%= t("discount").upcase %></a></li>
       <li><a href="#"><%= t("author").upcase %></a></li>
       <li><a href="#"><%= t("category").upcase %></a></li>

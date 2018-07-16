@@ -15,11 +15,14 @@ Rails.application.routes.draw do
   post "carts", to: "carts#edit"
   get "bills", to: "bills#new"
   post "bills", to: "bills#create"
+  get "my_bills", to: "bills#index"
+  get "detail/:id", to: "bills#show", as: "detail"
   resources :users
   resources :books do
     resources :comments
   end
   namespace :admin do
     resources :book_discounts
+    resources :bills
   end
 end
