@@ -13,4 +13,13 @@ module ApplicationHelper
     return "active" if request.path == path
     ""
   end
+
+  def current_controller? name
+    return "active" if controller.controller_name == name
+    ""
+  end
+
+  def convert_date str
+    str.strftime("%m/%d/%Y")
+  end
 end

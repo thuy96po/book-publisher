@@ -19,4 +19,7 @@ Rails.application.routes.draw do
   resources :books do
     resources :comments
   end
+  namespace :admin do
+    resources :book_discounts
+  end
 end

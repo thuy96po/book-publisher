@@ -4,6 +4,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :address_bills
   mount_uploader :avatar, PictureUploader
 
+  ADMIN = 1
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: {maximum: Settings.max_email},
     format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}

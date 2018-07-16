@@ -1,0 +1,49 @@
+<div class="table-responsive col-md-12">
+  <table id="mytable" class="table table-bordred table-striped">
+    <thead>
+    <th class="col-md-4"><%= t ".book" %></th>
+    <th class="text-center col-md-2"><%= t "admin.book_discounts.discount" %></th>
+    <th class="text-center col-md-2"><%= t ".start_date" %></th>
+    <th class="text-center col-md-2"><%= t ".end_date" %></th>
+    <th class="text-center"><%= t "edit" %></th>
+    <th class="text-center"><%= t "delete" %></th>
+    <th class="text-center"><%= t "detail" %></th>
+    </thead>
+    <tbody>
+      <% @book_discounts.each do |book_discount| %>
+      <tr>
+        <td><%= book_discount.book_name %></td>
+        <td class="text-center"><%= book_discount.discount %>%</td>
+        <td class="text-center"><%= convert_date book_discount.start_date %></td>
+        <td class="text-center"><%= convert_date book_discount.end_date %></td>
+        <td class="text-center">
+          <p data-placement="top" data-toggle="tooltip" title="<%= t "edit" %>">
+            <%= link_to edit_admin_book_discount_path(book_discount), class: "btn btn-primary btn-xs" do %>
+              <span class="glyphicon glyphicon-pencil"></span>
+            <% end %>
+          </p>
+        </td>
+        <td class="text-center">
+          <p data-placement="top" data-toggle="tooltip" title="<%= t "delete" %>">
+            <%= link_to admin_book_discount_path(book_discount), method: :delete, class: "btn btn-danger btn-xs" do %>
+              <span class="glyphicon glyphicon-trash"></span>
+            <% end %>
+          </p>
+        </td>
+        <td class="text-center">
+          <p data-placement="top" data-toggle="tooltip" title="<%= t "detail" %>">
+            <%= link_to admin_book_discount_path(book_discount), class: "btn btn-warning btn-xs" do %>
+              <span class="glyphicon glyphicon glyphicon-eye-open"></span>
+            <% end %>
+          </p>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <div class="row float-right">
+    <%== pagy_nav @pagy %>
+  </div>
+  <div class="clearfix"></div>
+</div>
+
