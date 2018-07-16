@@ -16,6 +16,7 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+//= require social-share-button
 
 $(function () {
   $('.page-alert' ).fadeOut(3000);

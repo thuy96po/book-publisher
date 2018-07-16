@@ -13,7 +13,14 @@
           <div class="col-md-9">
             <div class="product-title"><%= @book.name %></div>
             <div class="product-desc"><%= @book.author_name %></div>
-            <div class="product-rating"><strong id="rating"><%= @book.average_rate %></strong><i class="fa fa-star gold"></i></div>
+            <div class="product-rating row">
+              <div class="col-md-6">
+                <strong id="rating"><%= @book.average_rate %></strong><i class="fa fa-star gold"></i>
+              </div>
+              <div class="col-md-6 padding-15">
+                <%= social_share_button_tag(@book.name, "url": book_url(@book), desc: @book.name) %>
+              </div>
+            </div>
             <hr>
             <% if @book.discount %>
               <div class="price-has-discount"><%= load_price @book.price %></div>
