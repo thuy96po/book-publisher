@@ -1,0 +1,7 @@
+<% if devise_error_messages!.blank? %>
+  $('#nav-show').addClass('active');
+  $('#nav-edit').attr('class', '');
+  $('#profile-content').html('<%= j render 'users/user' %>');
+<% else %>
+  $('#profile-content').html('<%= j render 'devise/registrations/edit' %>');
+<% end %>

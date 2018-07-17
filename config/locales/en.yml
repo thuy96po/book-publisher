@@ -34,11 +34,6 @@ en:
   my_account: "My account"
   my_bill: "My bills"
   my_profile: "My profile"
-  signup: "Sign up"
-  login: "Log in"
-  logout: "Log out"
-  login: "Log in"
-  logout: "Log out"
   branch: "Branch"
   about_us: "About us"
   category: "Category"
@@ -97,6 +92,11 @@ en:
   users:
     new:
       submit: "Create Account"
+    show:
+      account_settings: "Account settings"
+      account_info: "Account info"
+    user:
+      account_created_at: "Account created at: "
     create:
       flash_success_content: "Welcome to this page"
   shared:
@@ -253,3 +253,4 @@ en:
         select: "Select status"
       update:
         flash_success_content: "Bill is edited successfully"
+

@@ -13,21 +13,21 @@
         <li class="<%= current_class? root_path %>"><a href="<%= root_path %>"><%= t("main_page").upcase %></a></li>
         <li><a href="#"><%= t("category").upcase %></a></li>
         <li><a href="#"><%= t("author").upcase %></a></li>
-        <% if logged_in? %>
-          <li class="dropdown" class="<%= current_class? logout_path %>">
+        <% if user_signed_in? %>
+          <li class="dropdown">
             <a class="dropbtn"><%= t("my_account").upcase %></a>
             <div class="dropdown-content">
-              <a href="#"><%= t "my_profile" %></a>
+              <a href="<%= profile_path %>"><%= t "my_profile" %></a>
               <a href="<%= my_bills_path %>"><%= t "my_bill" %></a>
               <% if current_user.role == User::ADMIN %>
                 <a href="<%= admin_book_discounts_path %>"><%= t "go_admin" %></a>
               <% end %>
-              <a href="<%= logout_path %>" data-method="delete"><%= t "logout" %></a>
+              <a href="<%= destroy_user_session_path %>" data-method="delete"><%= t "logout" %></a>
             </div>
           </li>
         <% else %>
-          <li class="<%= current_class? signup_path %>"><a href=<%= signup_path %>><%= t("signup").upcase %></a></li>
-          <li class="<%= current_class? login_path %>"><a href=<%= login_path %>><%= t("login").upcase %></a></li>
+          <li class="<%= current_class? new_user_registration_path %>"><a href=<%= new_user_registration_path %>><%= t("signup").upcase %></a></li>
+          <li class="<%= current_class? new_user_session_path %>"><a href=<%= new_user_session_path %>><%= t("login").upcase %></a></li>
         <% end %>
         <li class="<%= current_class? carts_path %>" id = "icon-cart">
           <a href="<%= carts_path %>">

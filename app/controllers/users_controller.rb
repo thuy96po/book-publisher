@@ -26,11 +26,4 @@ class UsersController < ApplicationController
       :password, :password_confirmation, address_bills_attributes:
       [:id, :address, :phone, :name, "_destroy"]
   end
-
-  def load_user
-    @user = User.find_by id: params[:id]
-    return if @user
-    flash[:danger] = t "user_not_found"
-    redirect_to root_path
-  end
 end

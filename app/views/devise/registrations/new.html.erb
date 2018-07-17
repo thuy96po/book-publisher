@@ -6,15 +6,11 @@
         <div class="panel-title"><%= t "signup"%></div>
       </div>
       <div class="panel-body" >
-        <%= form_for(@user) do |f| %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= render "shared/error_messages", object: f.object %>
 
-          <%= f.fields_for :address_bills do |f| %>
-            <% render "address_bills/fields", f: f %>
-          <% end %>
-
           <%= f.label :email, class: "required" %>
-          <%= f.email_field :email, class: "form-control" %>
+          <%= f.email_field :email, class: "form-control", autofocus: true %>
 
           <%= f.label :password, class: "required" %>
           <%= f.password_field :password, class: "form-control" %>
@@ -27,8 +23,9 @@
 
           <div class="form-group">
             <div class="col-sm-12 controls">
-              <%= f.submit t(".submit"), class: "btn btn-success" %>
+              <%= f.submit t("users.new.submit"), class: "btn btn-success" %>
             </div>
+            <%= render "devise/shared/links" %>
           </div>
         <% end %>
       </div>
