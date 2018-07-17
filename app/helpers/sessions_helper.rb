@@ -3,10 +3,6 @@ module SessionsHelper
     session[:user_id] = user.id
   end
 
-  def current_user
-    @current_user ||= User.find_by id: session[:user_id]
-  end
-
   def logged_in?
     current_user.present?
   end
@@ -17,8 +13,8 @@ module SessionsHelper
   end
 
   def load_user
-    return if logged_in?
+    return if user_signed_in?
     flash[:danger] = t "user_must_sign_in"
-    redirect_to login_path
+    redirect_to new_user_session_path
   end
 end

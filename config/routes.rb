@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users, :controllers => {:registrations => "registrations"}
   root "home#index"
   get "/branch", to: "static_pages#branch"
   get "/about", to: "static_pages#about"
   get "/contact", to: "static_pages#contact"
-  get "/signup", to: "users#new"
-  post "/signup", to: "users#create"
-  get "/login", to: "sessions#new"
-  post "/login", to: "sessions#create"
-  delete "/logout", to: "sessions#destroy"
   post "/addition/:id", to: "books#addition", as: "addition"
   get "carts", to: "carts#show"
   delete "carts", to: "carts#destroy_all", as: "destroy_carts_all"
@@ -17,7 +13,8 @@ Rails.application.routes.draw do
   post "bills", to: "bills#create"
   get "my_bills", to: "bills#index"
   get "detail/:id", to: "bills#show", as: "detail"
-  resources :users
+  get "/profile", to: "users#show"
+  post "/profile", to: "users#update"
   resources :books do
     resources :comments
   end
