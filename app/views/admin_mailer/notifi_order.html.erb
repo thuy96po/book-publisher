@@ -1,4 +1,5 @@
-<%= provide :title, t("bills.new.bill_detail") %>
+<p><%= t "mailer.notifi_order.content" %></p>
+<br>
 <div class="row">
   <div class="col-md-12">
     <%= render "admin/bills/readonly_field" %>
@@ -23,7 +24,7 @@
         <th class="text-center"><%= t ".price" %></th>
         </thead>
         <tbody>
-        <% @bill_details.each do |bill_detail| %>
+        <% @bill_info[:bill_details].each do |bill_detail| %>
           <tr>
             <td><%= bill_detail.book_name %></td>
             <td class="text-center"><%= bill_detail.quantity %></td>
@@ -32,9 +33,6 @@
         <% end %>
         </tbody>
       </table>
-      <div class="row float-right">
-        <%== pagy_nav @pagy %>
-      </div>
       <div class="clearfix"></div>
     </div>
     <div class="form-group row">

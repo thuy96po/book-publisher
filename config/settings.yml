@@ -13,3 +13,4 @@ max_content: 255
 status_uncheck: 0
 status_inprogress: 1
 status_done: 2
+delay_mail: 2
