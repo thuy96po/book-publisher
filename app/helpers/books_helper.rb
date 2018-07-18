@@ -9,7 +9,11 @@ module BooksHelper
   end
 
   def load_book book_id = params[:id]
-    @book = Book.find_by id: book_id
+    @book = if book_id.to_i != 0
+              Book.find_by id: book_id
+            else
+              Book.find_by slug: book_id
+            end
     return if @book.present?
     flash[:danger] = t "no_exit_book"
     redirect_to root_path
