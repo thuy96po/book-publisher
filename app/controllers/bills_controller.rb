@@ -9,10 +9,13 @@ class BillsController < ApplicationController
 
   def show
     @bill = Bill.find_by id: params[:id]
-    @pagy, @bill_details = pagy BillDetail.where bill: @bill
-    return if @bill.present?
-    flash[:danger] = t "admin.bills.no_bill"
-    redirect_to list_bills_path
+    if @bill.nil?
+      flash[:danger] = t "admin.bills.no_bill"
+      redirect_to my_bills_path
+    else
+      @bill_info = @bill.info
+      @pagy, @bill_details = pagy @bill_info[:bill_details]
+    end
   end
 
   def new
@@ -31,9 +34,7 @@ class BillsController < ApplicationController
     @bill = Bill.create bills_params
     load_books
     insert_data
-    session[:cart] = nil
-    flash[:success] = t ".flash_success_content"
-    redirect_to root_path
+    after_insert
   end
 
   private
@@ -57,6 +58,13 @@ class BillsController < ApplicationController
         book.update_attributes! quantity: book.quantity - quantity
       end
     end
+  end
+
+  def after_insert
     return unless @bill.persisted?
+    session[:cart] = nil
+    flash[:success] = t ".flash_success_content"
+    redirect_to root_path
+    NotifiOrderJob.set(wait: Settings.delay_mail.seconds).perform_later @bill
   end
 end

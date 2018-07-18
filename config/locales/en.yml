@@ -253,4 +253,7 @@ en:
         select: "Select status"
       update:
         flash_success_content: "Bill is edited successfully"
-
+  mailer:
+    notifi_order:
+      subject: "New order"
+      content: "You have new order, detail below:"

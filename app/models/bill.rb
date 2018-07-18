@@ -12,4 +12,13 @@ class Bill < ApplicationRecord
   def default_status
     self.status ||= UNCHECK
   end
+
+  def info
+    bill_details = BillDetail.includes(:book).where bill_id: self
+    total = 0
+    bill_details.each do |bill_detail|
+      total += bill_detail.quantity * bill_detail.price
+    end
+    {bill_details: bill_details, total: total}
+  end
 end
