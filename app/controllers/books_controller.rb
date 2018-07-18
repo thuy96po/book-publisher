@@ -12,7 +12,7 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.load_books_with_discount.find_by id: params[:id]
+    @book = Book.load_books_with_discount.find_by id: @book
     load_comments @book.id
     @comment = Comment.new
   end

@@ -1,4 +1,5 @@
 class Book < ApplicationRecord
+  extend FriendlyId
   belongs_to :author
   belongs_to :category
   has_many :book_discounts
@@ -12,6 +13,8 @@ class Book < ApplicationRecord
   scope :price_less_than, ->(price){where "price*(1-discount/100) <= ?", price}
   scope :price_greater_than,
     ->(price){where "price*(1-discount/100) >= ?", price}
+
+  friendly_id :name, use: [:slugged, :finders]
 
   def self.load_books_with_discount
     select("books.*, book_discounts.discount")
