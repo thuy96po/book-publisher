@@ -1,0 +1,24 @@
+<%= t "name" %>: <%= @bill.name %>
+<%= t "address" %>: <%= @bill.address %>
+<%= t "phone" %>: <%= @bill.phone %>
+<%= t "status" %>:<%= convert_status_bill @bill.status %>
+<%= t "bills.new.bill_detail" %>:
+
+<table>
+  <thead>
+  <th><%= t "book" %></th>
+  <th><%= t "carts.show.quantity" %></th>
+  <th><%= t "price" %></th>
+  </thead>
+  <tbody>
+  <% @bill_info[:bill_details].each do |bill_detail| %>
+    <tr>
+      <td><%= bill_detail.book_name %></td>
+      <td><%= bill_detail.quantity %></td>
+      <td><%= load_price bill_detail.price %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<strong><%= t ".total"%>: <%= load_price @bill_info[:total] %></strong>

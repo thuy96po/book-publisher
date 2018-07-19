@@ -25,6 +25,7 @@ class Admin::BillsController < Admin::AdminController
   def update
     if @bill.update_attributes bill_params
       flash[:success] = t ".flash_success_content"
+      NotifiStatusJob.set(wait: Settings.delay_mail.second).perform_later @bill
     else
       flash[:danger] = t "wrong"
     end
