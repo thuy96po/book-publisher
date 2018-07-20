@@ -1,0 +1,25 @@
+<%= form_with url: url, method: :get, scope: :search do |f|%>
+  <div class="col-md-1">
+    <%= f.label :start_date, t(".from"), class: "label-search" %>
+  </div>
+  <div class="col-md-3">
+    <%= f.date_field :start_date, class: "form-control", value: convert_date_input(@start_date) %>
+  </div>
+  <div class="col-md-2"></div>
+  <div class="col-md-1">
+    <%= f.label :end_date, t(".to"), class: "label-search" %>
+  </div>
+  <div class="col-md-3">
+    <%= f.date_field :end_date, class: "form-control", value: convert_date_input(@end_date) %>
+  </div>
+  <div class="col-md-1">
+    <%= f.submit t("search"), class: "btn btn-success" %>
+  </div>
+  <div class="col-md-1">
+    <p data-placement="top" data-toggle="tooltip" title="<%= t "refresh" %>">
+      <%= link_to admin_best_seller_path, class: "btn btn-primary" do %>
+        <span class="glyphicon glyphicon-refresh"></span>
+      <% end %>
+    </p>
+  </div>
+<% end %>

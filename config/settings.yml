@@ -7,10 +7,11 @@ min_phone: 10
 type_image: "image/jpeg,image/gif,image/png"
 list_length: 9
 description_length: 120
-pagy: 5
+pagy: 8
 display_alert_addition: 1000
 max_content: 255
 status_uncheck: 0
 status_inprogress: 1
 status_done: 2
 delay_mail: 2
+chart_items: 5
