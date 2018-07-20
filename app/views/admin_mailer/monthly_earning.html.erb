@@ -1,0 +1,5 @@
+<p><%= t "mailer.monthly_earning.content_greeting" %></p>
+<br>
+<p><%= t "mailer.monthly_earning.content_total" %> <%= load_price @earn[:total] %></p>
+<p><%= t "mailer.monthly_earning.content_discount" %> <%= load_price @earn[:discount] %></p>
+<p><%= t "mailer.monthly_earning.content_total_with_discount" %> <%= load_price @earn[:total_with_discount] %></p>

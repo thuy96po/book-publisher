@@ -268,4 +268,10 @@ en:
     notifi_status:
       subject: "Your order is %{status}"
       content: "Your order is %{status}, detail below: "
+    monthly_earning:
+      subject: "Monthly earning %{time}"
+      content_greeting: "Hello, in this month, you earned: "
+      content_total: "Total: "
+      content_discount: "Discount: "
+      content_total_with_discount: "You earn really: "
   statistic: "Statistic"
