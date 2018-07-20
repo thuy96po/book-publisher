@@ -23,6 +23,10 @@ module ApplicationHelper
     str.strftime("%m/%d/%Y")
   end
 
+  def convert_date_input str
+    str.strftime("%Y-%m-%d")
+  end
+
   def convert_status_bill stt
     case stt
     when Bill::UNCHECK
