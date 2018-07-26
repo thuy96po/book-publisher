@@ -27,4 +27,32 @@ class Book < ApplicationRecord
   def self.load_limit last
     limit(Settings.list_length).offset(last)
   end
+
+  def self.statistic start_date, end_date
+    bill_seller = "SELECT bill_details.book_id, sum(bill_details.quantity) AS
+      quantity FROM bill_details WHERE
+      strftime(\"%Y-%m-%d\", bill_details.created_at) <= \"#{end_date}\" AND
+      strftime(\"%Y-%m-%d\",bill_details.created_at) >= \"#{start_date}\"
+      GROUP BY bill_details.book_id"
+
+    select("books.name, selling.quantity")
+      .joins("LEFT JOIN (#{bill_seller})AS selling ON books.id =
+      selling.book_id").order("selling.quantity DESC")
+  end
+
+  def self.to_chart books
+    charts = [[I18n.t("name"), I18n.t("carts.show.quantity")]]
+
+    other = 0
+    books.each_with_index do |book, index|
+      quantity = book.quantity.to_i
+      if index < Settings.chart_items
+        charts << [book.name, quantity]
+      else
+        other += quantity
+      end
+    end
+
+    charts << [I18n.t("admin.statistic.best_seller.other"), other]
+  end
 end

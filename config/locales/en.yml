@@ -253,6 +253,14 @@ en:
         select: "Select status"
       update:
         flash_success_content: "Bill is edited successfully"
+    statistic:
+      best_seller:
+        title: "Best seller"
+        other: "Other"
+        title_chart: "Top %{chart_items} best seller"
+      search:
+        from: "From"
+        to: "To"
   mailer:
     notifi_order:
       subject: "New order"
@@ -260,3 +268,4 @@ en:
     notifi_status:
       subject: "Your order is %{status}"
       content: "Your order is %{status}, detail below: "
+  statistic: "Statistic"

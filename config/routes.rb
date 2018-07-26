@@ -21,5 +21,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :book_discounts
     resources :bills
+    get "/best_seller", to: "statistic#best_seller"
   end
 end

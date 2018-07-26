@@ -10,6 +10,13 @@
       <li><a href="#"><%= t("author").upcase %></a></li>
       <li><a href="#"><%= t("category").upcase %></a></li>
       <li><a href="#"><%= t("advertisment").upcase %></a></li>
+      <li class="dropdown <%= current_controller? "statistic" %>">
+        <a class="dropbtn"><%= t("statistic").upcase %></a>
+        <div class="dropdown-content">
+          <a href="<%= admin_best_seller_path %>"><%= t("admin.statistic.best_seller.title").upcase %></a>
+          <a href="#"><%= t "author".upcase %></a>
+        </div>
+      </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="<%= destroy_user_session_path %>" data-method="delete"><%= t("logout").upcase %> <span class="glyphicon glyphicon-log-in"></span></a></li>
